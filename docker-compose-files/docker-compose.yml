@@ -2,7 +2,7 @@
 version: "3"
 services: 
   tictactoe-api:
-    image: andreluizmachado/tictactoe-api
+    image: andreluizkbca/tictactoe-api
   # Creating container (Nginx)
   nginx:
     image: nginx:latest
