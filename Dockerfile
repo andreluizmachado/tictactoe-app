@@ -1,11 +1,16 @@
-FROM node:9.8-alpine
+FROM node:9.8-alpine as builder
 
 WORKDIR /app
 
-#COPY package.json
+COPY package.json .
 
-#RUN yarn install
+RUN yarn install
 
-#COPY app/build .
+COPY src ./src
+COPY public ./public
 
-#RUN 
+RUN yarn build
+
+FROM nginx
+
+COPY --from=builder /app/build /usr/share/nginx/html
