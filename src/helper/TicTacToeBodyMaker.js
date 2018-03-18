@@ -1,5 +1,5 @@
 class TicTacToeBodyMaker {
-  makeBody(board, nextPlay) {
+  makeBody(board, nextPlay, player) {
   	let requestBoard = {
   		x: {
   			previousPlays: [],
@@ -30,7 +30,7 @@ class TicTacToeBodyMaker {
  		}
  	);
 
- 	requestBoard.x.nextPlay = nextPlay;
+ 	requestBoard[player].nextPlay = nextPlay;
 
  	return requestBoard;
   }

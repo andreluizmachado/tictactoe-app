@@ -3,10 +3,22 @@ import './TicTacToeColumn.css'
 
 class TicTacToeColumn extends Component {
   handleClick = () => {
+    if (!this.IsEmptyColumn()) {
+      return;      
+    }
+
+    if (this.props.gameOver) {
+      return;
+    }
+
   	this.props.markCell(
   		this.props.line,
   		this.props.column
   	);
+  }
+
+  IsEmptyColumn() {
+    return this.props.children === '';
   }
 
   render() {
