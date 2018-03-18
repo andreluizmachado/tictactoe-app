@@ -1,0 +1,11 @@
+# Creating container MySQL
+version: "3"
+services: 
+  node:
+    image: node:9.8-alpine
+    volumes:
+      - ../:/var/www/html
+    working_dir: /var/www/html
+    ports:
+      - 3000:3000
+    command: sh -c "yarn install && yarn start"
